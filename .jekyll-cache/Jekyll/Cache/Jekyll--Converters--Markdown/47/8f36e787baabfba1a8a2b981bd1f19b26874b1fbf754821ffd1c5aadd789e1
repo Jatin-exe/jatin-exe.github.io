@@ -1,0 +1,72 @@
+I"<p>Inspired by <a href="https://twitter.com/mdreid">Mark Reid’s</a> blog post <a href="http://mark.reid.name/blog/switching-to-hakyll.html">Switching from Jekyll to Hakyll</a> I decided to abandon Wordpress and give Jekyll a try (note, I currently do not yet feel pro enough to switch to Haskell-based Hakyll). I can confidently say that I could not be happier about this decision.</p>
+
+<h3 id="wordpress-monster">Wordpress Monster</h3>
+
+<p><em>“So what’s wrong with Wordpress?”</em> You may ask. Let’s see, everything:</p>
+
+<ul>
+  <li>Wordpress blogs are clunky, slow and bloated.</li>
+  <li>Wordpress is dynamically rendered with <strong>.php</strong>. There are really only few niche applications where this is necessary. Dynamic code execution exposes your blog to hackers and exploits: zero-day attacks, viruses, etc. My own blog was hacked ~2 months ago and all my posts had been infected with spammy content that kept re-inserting itself magically when I removed it.</li>
+  <li>Wordpress is popular among the masses of people who don’t know any better, and therefore attracts the largest amount of spammers.</li>
+  <li>Your posts are stuck forever in an ugly, Wordpress-specific SQL database (ew). You can’t easily import/export posts. You do not really own your content in raw and nimble form.</li>
+  <li>Wordpress is blocked in China.</li>
+</ul>
+
+<blockquote>
+  <p>Wordpress is a bloated, clunky, slow, vulnerable, closed mess.</p>
+</blockquote>
+
+<h3 id="jekyll-3">Jekyll &lt;3</h3>
+
+<p><a href="http://jekyllrb.com/">Jekyll</a> describes itself as a tool for building <em>“Simple, blog-aware, static sites”</em>, and was originally written by one of the Github co-founders, <a href="http://tom.preston-werner.com/">Tom Preston-Werner</a>. It is flat and transparent: Your blog workspace is a single folder with a config file, and a few folders for CSS and HTML templates. All my content, for example, lives in two folders:</p>
+
+<ol>
+  <li>My blog posts are just files in a single folder <code class="language-plaintext highlighter-rouge">_posts</code>, written in <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a>. Including this post, of course.</li>
+  <li>My images are in a single folder <code class="language-plaintext highlighter-rouge">assets</code>.</li>
+</ol>
+
+<p>That’s it. You call <code class="language-plaintext highlighter-rouge">$ jekyll build</code> from command line and it will automatically render all posts it finds in your <code class="language-plaintext highlighter-rouge">_posts</code> folder from markdown to HTML, wraps it with header/footer templates, creates the parent index page that lists all your posts and outputs everything into a directory <code class="language-plaintext highlighter-rouge">_site</code>. The <code class="language-plaintext highlighter-rouge">_site</code> directory holds your entire webpage as static content. It can then be uploaded to a webserver wherever you like.</p>
+
+<p>The entire code base consists of like 7 files. It’s easy to see how the HTML templates get composed to your final site. It’s trivial to tweak the CSS or any of the HTML templates. For example, I added <strong>Google Analytics</strong> tracking code to all my pages by tweaking the html template, and also <strong>Disqus</strong> comments to all my posts by tweaking the posts template with the Disqus Javascript code.</p>
+
+<h4 id="github-integration">Github integration</h4>
+
+<p>Lastly, as you might expect Jekyll is tightly integrated with Github: create a repository that looks like <code class="language-plaintext highlighter-rouge">username.github.io</code> and add your files to the repo. Github will automatically compile your files with Jekyll and make the <code class="language-plaintext highlighter-rouge">_site</code> folder available. For example, mine lives on <a href="http://karpathy.github.io/">karpathy.github.io</a>. Thus, Github makes sure that your blog is beautifully backed up <strong>forever in simple markdown</strong>, and also <strong>hosts your content</strong>!</p>
+
+<blockquote>
+  <p>Jekyll strikes the balance: It’s packed with just the right amount of features.</p>
+</blockquote>
+
+<h4 id="example-workflow">Example workflow</h4>
+<p>To give a flavor for the workflow, to add a new blog post I proceed as follows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>_posts
+<span class="nv">$ </span>vim 2014-07-02-example-page.markdown
+</code></pre></div></div>
+
+<p>Now we write the blog post in markdown, here’s an example file:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">---</span>
+layout: post
+title:  <span class="s2">"Post title"</span>
+excerpt: <span class="s2">"A nice post"</span>
+<span class="nb">date</span>:   2014-07-02 10:00:00
+<span class="nt">---</span>
+
+Hello world, this is <span class="k">**</span>markdown<span class="k">**</span><span class="nb">.</span>
+
+</code></pre></div></div>
+
+<p>Lets pop back out to console now. I could preview the changes in a local webserver with <code class="language-plaintext highlighter-rouge">$ jekyll serve --watch</code> (the watch switch refreshes any updated files as you write them). Now let’s just push it live:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ..
+<span class="nv">$ </span>git add <span class="nb">.</span>
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s2">"new blog post"</span>
+<span class="nv">$ </span>git push
+</code></pre></div></div>
+
+<p>After the last command, Github will see that my repo has changed and automatically refreshes <a href="http://karpathy.github.io/">karpathy.github.io</a> to point to the newly generated <code class="language-plaintext highlighter-rouge">_site</code>. My post is live!</p>
+
+<p>Anyway, that’s just a brief taste. Check out <a href="http://jekyllrb.com/">Jekyll</a> and get blogging in a sane way!</p>
+
+:ET
