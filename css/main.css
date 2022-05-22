@@ -40,6 +40,11 @@ a:visited { color: #205caa; }
 
 /* Site header */
 
+#sub-title{
+  font-size: 0.8em;
+}
+
+
 .site-header {
   border-top: 5px solid #333;
   border-bottom: 1px solid #e8e8e8;
