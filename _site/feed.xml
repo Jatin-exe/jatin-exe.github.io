@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jatin-exe's blog</title>
+    <description>Adventures of a Chaotically Calm person</description>
+    <link>http://jatin-exe.github.io/</link>
+    <atom:link href="http://jatin-exe.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 22 May 2022 21:24:16 +0530</pubDate>
+    <lastBuildDate>Sun, 22 May 2022 21:24:16 +0530</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Test</title>
+        <description>&lt;h1 id=&quot;test&quot;&gt;Test&lt;/h1&gt;
+
+&lt;h2 id=&quot;this-is&quot;&gt;this is&lt;/h2&gt;
+
+&lt;h3 id=&quot;a-test&quot;&gt;a test&lt;/h3&gt;
+
+&lt;h4 id=&quot;indeed&quot;&gt;indeed&lt;/h4&gt;
+
+&lt;p&gt;That i wrote here&lt;/p&gt;
+</description>
+        <pubDate>Sun, 22 May 2022 01:30:00 +0530</pubDate>
+        <link>http://jatin-exe.github.io/2022/05/22/test/</link>
+        <guid isPermaLink="true">http://jatin-exe.github.io/2022/05/22/test/</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
